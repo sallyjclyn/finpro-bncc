@@ -1,0 +1,57 @@
+body{
+    background-color: black;
+    display: flex;
+    margin: 0;
+    height: 100vh;
+}
+:root {
+    --purple: #a467ca;
+    --violet: #8621ad;
+    --blue: #357be4;
+}
+h1{ 
+    color: aliceblue;
+    
+}
+
+h1 > .effect{
+    animation: background-pan 3s linear infinite;
+    background: linear-gradient(to right,
+    var(--purple),
+    var(--violet),
+    var(--blue),
+    var(--purple)
+    );
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes background-pan{
+    from{
+        background-position: 0% center;
+    }
+    to{
+        background-position: -200% center;
+    }
+}
+
+#trailer{
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    border-radius: 20px;
+
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 500ms ease;
+}
+
+body:hover > #trailer
+{opacity: 1;
+}
